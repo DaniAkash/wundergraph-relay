@@ -1,0 +1,18 @@
+query FindPokemonById($id: Int!) {
+	pokemon_pokemon_v2_pokemon(where: {
+		id: { _eq: $id}
+	}) {
+		id
+		name
+		pokemon_v2_pokemontypes {
+			pokemon_v2_type {
+				name
+			}
+		}
+		pokemon_v2_pokemonabilities {
+			pokemon_v2_ability {
+				name
+			}
+		}
+	}
+}

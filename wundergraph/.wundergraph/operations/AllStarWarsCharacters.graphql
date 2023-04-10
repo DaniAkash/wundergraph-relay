@@ -1,0 +1,17 @@
+query AllStarWarsCharacters {
+	starwars_allPeople {
+		people {
+			name
+			filmConnection {
+				films {
+					id
+					title
+				}
+			}
+		}
+		pageInfo {
+			hasNextPage
+			endCursor
+		}
+	}
+}
