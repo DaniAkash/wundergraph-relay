@@ -1,0 +1,5 @@
+{
+    "relay.autoStartCompiler": true,
+    "relay.pathToConfig": "frontend/relay-app/package.json",
+    "relay.pathToRelay": "frontend/relay-app/node_modules/relay-compiler/macos-arm64/relay"
+}

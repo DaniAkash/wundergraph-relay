@@ -1,10 +1,19 @@
-import { useState } from 'react'
-import reactLogo from './assets/react.svg'
-import viteLogo from '/vite.svg'
-import './App.css'
+import { useState } from "react";
+import reactLogo from "./assets/react.svg";
+import { graphql } from "react-relay";
+import viteLogo from "/vite.svg";
+import "./App.css";
+
+const HomePageQuery = graphql`
+  query AppAllPokemonQuery {
+    pokemon_pokemon_v2_pokemon(limit: 30) {
+      ...AllPokemon_display_details
+    }
+  }
+`;
 
 function App() {
-  const [count, setCount] = useState(0)
+  const [count, setCount] = useState(0);
 
   return (
     <div className="App">
@@ -29,7 +38,7 @@ function App() {
         Click on the Vite and React logos to learn more
       </p>
     </div>
-  )
+  );
 }
 
-export default App
+export default App;
