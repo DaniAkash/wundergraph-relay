@@ -1,13 +1,10 @@
 import { useFragment, graphql } from "react-relay";
-import {
-  AllPokemon_display_details$data,
-  AllPokemon_display_details$key,
-} from "../__relay__generated__/AllPokemon_display_details.graphql";
+import { AllPokemon_display_details$key } from "../__relay__generated__/AllPokemon_display_details.graphql";
 import { FC } from "react";
 
-// export interface AllPokemonProps {
-//   pokemon: AllPokemon_display_details$data;
-// }
+export interface AllPokemonProps {
+  pokemon: AllPokemon_display_details$key;
+}
 
 const AllPokemonFragment = graphql`
   fragment AllPokemon_display_details on pokemon_pokemon_v2_pokemon {
@@ -26,7 +23,7 @@ const AllPokemonFragment = graphql`
   }
 `;
 
-export const AllPokemon: FC = ({ pokemon }) => {
+export const AllPokemon: FC<AllPokemonProps> = ({ pokemon }) => {
   const data = useFragment(AllPokemonFragment, pokemon);
   return (
     <div>

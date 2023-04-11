@@ -32,7 +32,7 @@ const MyComp = ({
   return (
     <div>
       <pre>{JSON.stringify(data)}</pre>
-      {/* <AllPokemon pokemon={data.pokemon_pokemon_v2_pokemon} /> */}
+      <AllPokemon pokemon={data.pokemon_pokemon_v2_pokemon[0]} />
     </div>
   );
 };
