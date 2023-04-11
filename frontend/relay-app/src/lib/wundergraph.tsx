@@ -12,7 +12,7 @@ import {
 } from "react-relay/hooks";
 import { RelayEnvironmentProvider } from "react-relay";
 import { useEffect, useState, useRef, ComponentType, FC } from "react";
-import { withRelay, hydrateRelayEnvironment } from "relay-nextjs";
+// import { withRelay, hydrateRelayEnvironment } from "relay-nextjs";
 import {
   Environment,
   FetchFunction,
@@ -26,11 +26,11 @@ import {
   createOperationDescriptor,
   getRequest,
 } from "relay-runtime";
-import { WiredOptions, WiredProps } from "relay-nextjs/wired/component";
+// import { WiredOptions, WiredProps } from "relay-nextjs/wired/component";
 
 // To avoid the error: The inferred type of X cannot be named without a reference to Y due to dependencies between relay-nextjs & next packages
 // Reference: https://github.com/microsoft/TypeScript/issues/47663#issuecomment-1270716220
-import type {} from "next";
+// import type {} from "next";
 
 export interface SubscribeToOptions extends SubscriptionRequestOptions {
   onResult(response: ClientResponse): void;
@@ -120,7 +120,7 @@ export const createWunderGraphRelayApp = (client: Client) => {
         isServer: false,
       });
 
-      hydrateRelayEnvironment(clientEnv);
+      // hydrateRelayEnvironment(clientEnv);
     }
 
     return clientEnv;
@@ -215,31 +215,31 @@ export const createWunderGraphRelayApp = (client: Client) => {
     };
   };
 
-  const withWunderGraphRelay = <Props extends WiredProps, ServerSideProps>(
-    Component: ComponentType<Props>,
-    query: GraphQLTaggedNode,
-    opts: Omit<
-      WiredOptions<Props, ServerSideProps>,
-      "createClientEnvironment" | "createServerEnvironment"
-    >
-  ) => {
-    const WrappedComponent: ReturnType<
-      typeof withRelay<Props, ServerSideProps>
-    > & { displayName?: string } = withRelay(Component, query, {
-      createClientEnvironment: () => createClientEnvironment()!,
-      createServerEnvironment: async () => {
-        return createServerEnvironment();
-      },
-      ...opts,
-    });
+  // const withWunderGraphRelay = <Props extends WiredProps, ServerSideProps>(
+  //   Component: ComponentType<Props>,
+  //   query: GraphQLTaggedNode,
+  //   opts: Omit<
+  //     WiredOptions<Props, ServerSideProps>,
+  //     "createClientEnvironment" | "createServerEnvironment"
+  //   >
+  // ) => {
+  //   const WrappedComponent: ReturnType<
+  //     typeof withRelay<Props, ServerSideProps>
+  //   > & { displayName?: string } = withRelay(Component, query, {
+  //     createClientEnvironment: () => createClientEnvironment()!,
+  //     createServerEnvironment: async () => {
+  //       return createServerEnvironment();
+  //     },
+  //     ...opts,
+  //   });
 
-    // Adding a display Name to help with debugging with React Dev Tools
-    WrappedComponent.displayName = `withWunderGraphRelay(${
-      Component.displayName || Component.name
-    })`;
+  //   // Adding a display Name to help with debugging with React Dev Tools
+  //   WrappedComponent.displayName = `withWunderGraphRelay(${
+  //     Component.displayName || Component.name
+  //   })`;
 
-    return WrappedComponent;
-  };
+  //   return WrappedComponent;
+  // };
 
   const useLivePreloadedQuery = <TQuery extends OperationType>(
     gqlQuery: Parameters<typeof usePreloadedQuery>[0],
@@ -312,7 +312,7 @@ export const createWunderGraphRelayApp = (client: Client) => {
     createServerEnvironment,
     createServerNetwork,
     useLivePreloadedQuery,
-    withWunderGraphRelay,
+    // withWunderGraphRelay,
     WunderGraphRelayProvider,
   };
 };

@@ -1,0 +1,19 @@
+query AppAllPokemonQuery {
+  pokemon_pokemon_v2_pokemon(limit: 30) {
+    ...AllPokemon_display_details
+  }
+}
+fragment AllPokemon_display_details on pokemon_pokemon_v2_pokemon {
+  id
+  name
+  pokemon_v2_pokemontypes {
+    pokemon_v2_type {
+      name
+    }
+  }
+  pokemon_v2_pokemonabilities {
+    pokemon_v2_ability {
+      name
+    }
+  }
+}

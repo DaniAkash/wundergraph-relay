@@ -1,10 +1,19 @@
-import React from 'react'
-import ReactDOM from 'react-dom/client'
-import App from './App'
-import './index.css'
+import React from "react";
+import ReactDOM from "react-dom/client";
+import App from "./App";
+import "./index.css";
 
-ReactDOM.createRoot(document.getElementById('root') as HTMLElement).render(
+import { createClient } from "../../../wundergraph/.wundergraph/generated/client";
+import { createWunderGraphRelayApp } from "./lib/wundergraph";
+
+const client = createClient();
+
+const { WunderGraphRelayProvider } = createWunderGraphRelayApp(client);
+
+ReactDOM.createRoot(document.getElementById("root") as HTMLElement).render(
   <React.StrictMode>
-    <App />
-  </React.StrictMode>,
-)
+    <WunderGraphRelayProvider>
+      <App />
+    </WunderGraphRelayProvider>
+  </React.StrictMode>
+);

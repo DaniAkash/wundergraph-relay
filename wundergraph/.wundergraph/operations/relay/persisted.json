@@ -1,4 +1,5 @@
 {
   "6956a22aa8919444c7f4f63e22c4fbe8": "query AppAllPokemonQuery {\n  pokemon_pokemon_v2_pokemon(limit: 30) {\n    ...AllPokemon_display_details\n  }\n}\n\nfragment AllPokemon_display_details on pokemon_pokemon_v2_pokemon {\n  id\n  name\n  pokemon_v2_pokemontypes {\n    pokemon_v2_type {\n      name\n    }\n  }\n  pokemon_v2_pokemonabilities {\n    pokemon_v2_ability {\n      name\n    }\n  }\n}\n",
+  "78851ee68d92522902b15df5d439fd7e": "query AppAllPokemonQuery {\n  pokemon_pokemon_v2_pokemon(limit: 30) {\n    ...AllPokemon_display_details\n  }\n}\n\nfragment AllPokemon_display_details on pokemon_pokemon_v2_pokemon {\n  _id: id\n  name\n  pokemon_v2_pokemontypes {\n    pokemon_v2_type {\n      name\n    }\n  }\n  pokemon_v2_pokemonabilities {\n    pokemon_v2_ability {\n      name\n    }\n  }\n}\n",
   "a343ea21e74a2a9d6b1f42da87073d64": "query AppAllPokemonQuery {\n  pokemon_pokemon_v2_pokemon(limit: 30) {\n    name\n    pokemon_v2_pokemontypes {\n      pokemon_v2_type {\n        name\n      }\n    }\n    pokemon_v2_pokemonabilities {\n      pokemon_v2_ability {\n        name\n      }\n    }\n  }\n}\n"
 }
